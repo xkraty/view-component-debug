@@ -1,0 +1,28 @@
+name: Tests
+
+on:
+  workflow_call:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    env:
+      RAILS_ENV: test
+
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: Run Rspec
+        run: bin/rspec
+
+      - name: Run Minitest
+        run: bin/rails test
