@@ -10,4 +10,10 @@ RSpec.describe TestComponent, type: :component do
       "Hello, components!"
     )
   end
+
+  it "renders a form field" do
+    render_inline(described_class.new)
+
+    expect(rendered_content).to eq("<span>Hello, components!</span>")
+  end
 end
