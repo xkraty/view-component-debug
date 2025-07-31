@@ -22,7 +22,7 @@ jobs:
           bundler-cache: true
 
       - name: Run Rspec
-        run: bin/rspec
+        run: bin/rspec --format documentation
 
       - name: Run Minitest
-        run: bin/rails test
+        run: bin/rails test --verbose
